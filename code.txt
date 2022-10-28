@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */    
+    int n,p;
+    //printf("Enter number of elements in first row:");
+    scanf("%d",&n);
+    int arr[n];
+    //printf("Enter first row elements :");
+    for(int i=0;i<n;i++)
+        scanf("%d",&arr[i]);
+    //printf("\n");
+    for(int i=0;i<n;i++)
+        printf("%d ",arr[i]);
+    printf("\n");
+    for(int i=n-1;i>0;i--,printf("\n")){
+        for(int space=i;space<n;space++)
+            printf("  ");
+        for(int j=1;j<=i;j++){
+            if(arr[j]+arr[j-1]<10)
+                p=arr[j]+arr[j-1];
+
+                else{
+                p=arr[j]+arr[j-1];
+                p%=9;
+                }
+                printf("%d ",p);
+                arr[j-1]=p;
+            }
+                                  
+        }        
+        
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+{
+   // Your code here
+   int prev,next;
+   if(arr[0]>arr[1])
+   return 0;
+   if(arr[n-1]>arr[n-2])
+   return n-1;
+   for(int i=1;i<n-1;i++){
+        prev=i-1;
+        next=i+1;
+        if(arr[i]>arr[prev] && arr[i]>arr[next])
+        return i;
+   }
+   
+}
